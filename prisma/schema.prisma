@@ -1,0 +1,65 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+enum Skill {
+  TRIPLE_LEG_STRENGTH // "常人の三倍の脚力"
+  RESILIENT_BODY // "頑強なる肉体"
+  LANCE_KICK // "ランスキック"
+  CHARM // "魅了"
+  NINJA_SOUL_DARKNESS // "ニンジャソウルの闇"
+  KILL_NINE // "kill-9"（キルナイン）
+}
+
+model Ninja {
+  id                             String   @id @default(cuid())
+  name                           String
+  karate                         Int?
+  neuron                         Int?
+  wazamae                        Int?
+  jitsu                          Int?
+  initiative                     Int?
+  hp                             Int?
+  dex                            Int?
+  speed                          Int?
+  dkk                            Int?
+  assets                         Int?
+  fame                           Int?
+  jitsu_skils                    String[]
+  skills                         Skill[]
+  items                          String[]
+  knowledge_skills               String[]
+  cybernetics                    String[]
+  attack_change_value            Int?
+  shooting_change_value          Int?
+  pilot_change_value             Int?
+  brain_change_value             Int?
+  evation_change_value           Int?
+  precision_change_value         Int?
+  rollover_change_value          Int?
+  activation_change_value        Int?
+  quick_response_change_value    Int?
+  emargency_evation_change_value Int?
+  published                      Boolean  @default(false)
+  author                         User?    @relation(fields: [authorId], references: [id])
+  authorId                       String?
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?  @unique
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  posts     Ninja[]
+
+  @@map(name: "users")
+}
