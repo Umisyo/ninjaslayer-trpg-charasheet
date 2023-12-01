@@ -34,20 +34,31 @@ model Ninja {
   assets                         Int?
   fame                           Int?
   jitsu_skils                    String[]
-  skills                         Skill[]
+  default_skill                  Skill[]
+  skills                         String[]
   items                          String[]
   knowledge_skills               String[]
   cybernetics                    String[]
   attack_change_value            Int?
+  attack_growth_value            Int?
   shooting_change_value          Int?
+  shooting_growth_value          Int?
   pilot_change_value             Int?
+  pilot_growth_value             Int?
   brain_change_value             Int?
+  brain_growth_value             Int?
   evation_change_value           Int?
+  evation_growth_value           Int?
   precision_change_value         Int?
+  precision_growth_value         Int?
   rollover_change_value          Int?
+  rollower_growth_value          Int?
   activation_change_value        Int?
+  activation_growth_value        Int?
   quick_response_change_value    Int?
+  quick_response_growth_value    Int?
   emargency_evation_change_value Int?
+  emargency_evation_growth_value Int?
   published                      Boolean  @default(false)
   author                         User?    @relation(fields: [authorId], references: [id])
   authorId                       String?
