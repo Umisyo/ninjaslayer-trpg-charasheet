@@ -24,9 +24,13 @@ model Ninja {
   name                           String
   type                           String
   karate                         Int?
+  karate_grow                    Int?
   neuron                         Int?
+  neuron_grow                    Int?
   wazamae                        Int?
+  wazamae_grow                   Int?
   jitsu                          Int?
+  jitsu_grow                     Int?
   initiative                     Int?
   hp                             Int?
   leg_trength                    Int?
@@ -44,21 +48,13 @@ model Ninja {
   shooting_change_value          Int?
   shooting_growth_value          Int?
   pilot_change_value             Int?
-  pilot_growth_value             Int?
   brain_change_value             Int?
-  brain_growth_value             Int?
-  evation_change_value           Int?
-  evation_growth_value           Int?
+  evasion_change_value           Int?
   precision_change_value         Int?
-  precision_growth_value         Int?
   rollover_change_value          Int?
-  rollower_growth_value          Int?
   activation_change_value        Int?
-  activation_growth_value        Int?
   quick_response_change_value    Int?
-  quick_response_growth_value    Int?
-  emargency_evation_change_value Int?
-  emargency_evation_growth_value Int?
+  emergency_evation_change_value Int?
   published                      Boolean  @default(false)
   author                         User?    @relation(fields: [authorId], references: [id])
   authorId                       String?
