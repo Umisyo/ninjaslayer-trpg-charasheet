@@ -33,6 +33,7 @@ model Ninja {
   jitsu_grow                     Int?
   initiative                     Int?
   hp                             Int?
+  mental                         Int?
   leg_trength                    Int?
   dkk                            Int?
   assets                         Int?
