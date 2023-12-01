@@ -1,0 +1,35 @@
+export interface Ninja {
+  name: string;
+  type: string;
+  karate: number;
+  karateGrowValue: number;
+  neuron: number;
+  neuronGrowValue: number;
+  wazamae: number;
+  wazamaeGrowValue: number;
+  jitsu: number;
+  jitsuGrowValue: number;
+  initiative: number;
+  hpChangeValue: number;
+  mentalChangeValue: number;
+  legStrengthChangeValue: number;
+  dkk: number;
+  assets: number;
+  fame: number;
+  jitsuSkills: Array<string>;
+  default_skill: string;
+  skills: Array<string>;
+  items: Array<string>;
+  knowledge_skills: Array<string>;
+  cybernetics: Array<string>;
+  attackChangeValue: number;
+  shootingChangeValue: number;
+  pilotChangeValue: number;
+  brainChangeValue: number;
+  evasionChangeValue: number;
+  precisionChangeValue: number;
+  rolloverChangeValue: number;
+  activationChangeValue: number;
+  quickResponseChangeValue: number;
+  emergencyEvasionChangeValue: number;
+}
