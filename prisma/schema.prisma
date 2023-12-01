@@ -29,8 +29,7 @@ model Ninja {
   jitsu                          Int?
   initiative                     Int?
   hp                             Int?
-  dex                            Int?
-  speed                          Int?
+  leg_trength                    Int?
   dkk                            Int?
   assets                         Int?
   fame                           Int?
