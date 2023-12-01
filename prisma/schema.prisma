@@ -22,6 +22,7 @@ enum Skill {
 model Ninja {
   id                             String   @id @default(cuid())
   name                           String
+  type                           String
   karate                         Int?
   neuron                         Int?
   wazamae                        Int?
