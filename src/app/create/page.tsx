@@ -86,7 +86,7 @@ export default function Home() {
             <div className="p-2 border border-solid border-gray-600">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl">基礎能力値</h2>
-                <Button onClick={createRandomStatus}>ランダム</Button>
+                <Button onClick={createRandomStatus} type="button">ランダム</Button>
               </div>
               <div className="grid grid-cols-4 items-center">
                 <p>ステータス</p>
@@ -96,28 +96,28 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-4 items-center">
                 <Label>カラテ</Label>
-                <Input type="number" name="karate" placeholder="0" value={ninja.karate} onChange={handleInputChange}/>
+                <Input type="number" name="karate" placeholder="0" min={0} max={6} value={ninja.karate} onChange={handleInputChange}/>
                 <Input type="number" name="karateGrowValue" placeholder="0" value={ninja.karateGrowValue}
                        onChange={handleInputChange}/>
                 <p>{ninja.karate + ninja.karateGrowValue}</p>
               </div>
               <div className="grid grid-cols-4 items-center">
                 <Label>ニューロン</Label>
-                <Input type="number" name="neuron" placeholder="0" value={ninja.neuron} onChange={handleInputChange}/>
+                <Input type="number" name="neuron" placeholder="0" min={0} max={6} value={ninja.neuron} onChange={handleInputChange}/>
                 <Input type="number" name="neuronGrowValue" placeholder="0" value={ninja.neuronGrowValue}
                        onChange={handleInputChange}/>
                 <p>{ninja.neuron + ninja.neuronGrowValue}</p>
               </div>
               <div className="grid grid-cols-4 items-center">
                 <Label>ワザマエ</Label>
-                <Input type="number" name="wazamae" value={ninja.wazamae} placeholder="0" onChange={handleInputChange}/>
+                <Input type="number" name="wazamae" value={ninja.wazamae} placeholder="0" min={0} max={6}  onChange={handleInputChange}/>
                 <Input type="number" name="wazamaeGrowValue" value={ninja.wazamaeGrowValue} placeholder="0"
                        onChange={handleInputChange}/>
                 <p>{ninja.wazamae + ninja.neuronGrowValue}</p>
               </div>
               <div className="grid grid-cols-4 items-center">
                 <Label>ジツ</Label>
-                <Input type="number" name="jitsu" value={ninja.jitsu} placeholder="0" onChange={handleInputChange}/>
+                <Input type="number" name="jitsu" value={ninja.jitsu} placeholder="0" min={0} max={6} onChange={handleInputChange}/>
                 <Input type="number" name="jitsuGrowValue" value={ninja.jitsuGrowValue} placeholder="0"
                        onChange={handleInputChange}/>
                 <p>{ninja.jitsu + ninja.jitsuGrowValue}</p>
