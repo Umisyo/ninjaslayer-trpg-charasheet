@@ -1,9 +1,10 @@
 'use client'
 
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 import {Input} from "~/app/components/ui/input";
 import {Label} from "~/app/components/ui/label";
 import {Ninja} from "~/types/ninja";
+import {Button} from "~/app/components/ui/button";
 
 export default function Home() {
   const initialNinjaState: Ninja = {
@@ -46,7 +47,8 @@ export default function Home() {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const { name, value, type } = e.target;
+    const {name, value, type} = e.target;
+    console.log(value)
 
     // typeがnumberの場合、値を数値に変換する
     const formattedValue = type === 'number' ? Number(value) : value;
@@ -57,6 +59,17 @@ export default function Home() {
     }));
   };
 
+  const createRandomStatus = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+
+    setNinja((prevState) => ({
+      ...prevState,
+      karate: Math.floor(Math.random() * 6) + 1,
+      neuron: Math.floor(Math.random() * 6) + 1,
+      wazamae: Math.floor(Math.random() * 6) + 1,
+      jitsu: Math.floor(Math.random() * 6) + 1,
+    }));
+  }
 
   return (
     <main className="container">
@@ -71,7 +84,10 @@ export default function Home() {
           </div>
           <div className="sm:grid block grid-cols-2 gap-2 mt-3">
             <div className="p-2 border border-solid border-gray-600">
-              <h2 className="text-2xl">基礎能力値</h2>
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl">基礎能力値</h2>
+                <Button onClick={createRandomStatus}>ランダム</Button>
+              </div>
               <div className="grid grid-cols-4 items-center">
                 <p>ステータス</p>
                 <p>初期値</p>
@@ -81,25 +97,29 @@ export default function Home() {
               <div className="grid grid-cols-4 items-center">
                 <Label>カラテ</Label>
                 <Input type="number" name="karate" placeholder="0" value={ninja.karate} onChange={handleInputChange}/>
-                <Input type="number" name="karateGrowValue" placeholder="0" value={ninja.karateGrowValue} onChange={handleInputChange}/>
+                <Input type="number" name="karateGrowValue" placeholder="0" value={ninja.karateGrowValue}
+                       onChange={handleInputChange}/>
                 <p>{ninja.karate + ninja.karateGrowValue}</p>
               </div>
               <div className="grid grid-cols-4 items-center">
                 <Label>ニューロン</Label>
                 <Input type="number" name="neuron" placeholder="0" value={ninja.neuron} onChange={handleInputChange}/>
-                <Input type="number" name="neuronGrowValue" placeholder="0" value={ninja.neuronGrowValue} onChange={handleInputChange}/>
+                <Input type="number" name="neuronGrowValue" placeholder="0" value={ninja.neuronGrowValue}
+                       onChange={handleInputChange}/>
                 <p>{ninja.neuron + ninja.neuronGrowValue}</p>
               </div>
               <div className="grid grid-cols-4 items-center">
                 <Label>ワザマエ</Label>
                 <Input type="number" name="wazamae" value={ninja.wazamae} placeholder="0" onChange={handleInputChange}/>
-                <Input type="number" name="wazamaeGrowValue" value={ninja.wazamaeGrowValue} placeholder="0" onChange={handleInputChange}/>
+                <Input type="number" name="wazamaeGrowValue" value={ninja.wazamaeGrowValue} placeholder="0"
+                       onChange={handleInputChange}/>
                 <p>{ninja.wazamae + ninja.neuronGrowValue}</p>
               </div>
               <div className="grid grid-cols-4 items-center">
                 <Label>ジツ</Label>
                 <Input type="number" name="jitsu" value={ninja.jitsu} placeholder="0" onChange={handleInputChange}/>
-                <Input type="number" name="jitsuGrowValue" value={ninja.jitsuGrowValue} placeholder="0" onChange={handleInputChange}/>
+                <Input type="number" name="jitsuGrowValue" value={ninja.jitsuGrowValue} placeholder="0"
+                       onChange={handleInputChange}/>
                 <p>{ninja.jitsu + ninja.jitsuGrowValue}</p>
               </div>
             </div>
